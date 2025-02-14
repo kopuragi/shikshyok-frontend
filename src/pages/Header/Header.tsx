@@ -1,4 +1,5 @@
 import React from "react";
+import "../../styles/header.scss"; // Sass 파일 불러오기
 
 interface HeaderProps {
   nickname: string;
@@ -8,11 +9,14 @@ const Header: React.FC<HeaderProps> = ({ nickname }) => {
   nickname = "~님 환영합니다.";
   return (
     <header>
-      <div className="h-[7vh] w-[100vw] border border-pink-500 flex justify-between items-center px-4">
-        <div>
-          <img src={`${process.env.PUBLIC_URL}/assets/logo.png`} alt="Logo" />
+      <div className="header-container">
+        <div className="logo-container">
+          <img
+            src={`${process.env.PUBLIC_URL}/assets/logo_pc.png`}
+            alt="Logo"
+          />
         </div>
-        <div className="flex">
+        <div className="menu-container">
           <div>마이페이지</div>
           <div>주문내역</div>
           <div>로그아웃</div>
