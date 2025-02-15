@@ -1,0 +1,101 @@
+.order-history-container-all {
+  border: 1px solid red;
+  min-height: 700px;
+  max-width: 1040px;
+  width: 1040px;
+  margin-left: 30px;
+
+  @media (max-width: 480px) {
+    width: 94vw;
+    margin-left: 3vw;
+  }
+}
+
+.menu-tab-container-all {
+  display: flex;
+  min-height: 50px;
+}
+
+.menu-tab-1-all {
+  width: 140px;
+  background-color: gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 480px) {
+    width: 20vw;
+  }
+}
+
+.menu-tab-2-all {
+  width: 140px;
+  background-color: orange;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 480px) {
+    width: 20vw;
+  }
+}
+
+.receipt-card-container-all {
+  border: 1px solid red;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.receipt-card-all {
+  border: 1px solid green;
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
+
+  @media (max-width: 480px) {
+    width: 50%;
+  }
+}
+
+.receipt-card-list-all {
+  border: 1px solid blue;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bold;
+}
+.pagination-container-all {
+  background-color: aqua;
+  min-height: 50px;
+  max-width: 1040px;
+  width: 1040px;
+  margin-left: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media (max-width: 480px) {
+    width: 94vw;
+    margin-left: 3vw;
+  }
+}
+
+.pagination-number-container-all {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  li {
+    border: 1px solid black;
+    cursor: pointer;
+    background-color: white;
+    margin-left: 4px;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+  }
+}
