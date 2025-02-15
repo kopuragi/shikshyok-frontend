@@ -1,4 +1,3 @@
-import React from "react";
 import "../../styles/header.scss"; // Sass 파일 불러오기
 
 interface HeaderProps {
