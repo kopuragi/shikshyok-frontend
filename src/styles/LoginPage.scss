@@ -1,0 +1,102 @@
+.login-page {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh; /* 화면 중앙 정렬을 위해 전체 높이 설정 */
+
+  .login-title {
+    font-size: 2.5em; /* 제목 크기 설정 */
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .membership-container {
+    border: 1px solid #ccc; /* 테두리 설정 */
+    border-radius: 8px; /* 모서리 둥글게 */
+    padding: 20px;
+    width: 100%; /* 전체 너비 사용, 반응형 */
+    max-width: 400px; /* 최대 너비 설정 */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+    background-color: white; /* 배경색 설정 */
+
+    .membership-type {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+
+      button {
+        padding: 10px;
+        border: 1px solid #ccc;
+        background-color: white;
+        cursor: pointer;
+        flex: 1; /* 버튼을 동등하게 분배 */
+        margin: 0 5px; /* 버튼 간격 */
+        border-radius: 4px;
+
+        &.active {
+          background-color: #fe9a00; /* 활성화된 버튼 색상 */
+          color: white;
+        }
+
+        &:hover {
+          background-color: #f0f0f0; /* 호버 색상 변경 */
+        }
+      }
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+
+      .form-group {
+        margin-bottom: 15px;
+
+        label {
+          display: block;
+          margin-bottom: 5px;
+        }
+
+        input {
+          width: 100%;
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+        }
+      }
+
+      .error {
+        color: red;
+        font-size: 0.9em;
+        margin-bottom: 10px;
+      }
+
+      button {
+        padding: 10px;
+        background-color: #fe9a00;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #fe7a00; /* 호버 색상 변경 */
+        }
+      }
+    }
+  }
+  .additional-links {
+    margin-top: 15px; /* 버튼과 링크 사이의 간격 */
+    display: flex;
+    justify-content: space-evenly; /* 링크들을 양쪽으로 배치 */
+    font-size: 15px; /* 링크 글자 크기 설정 */
+
+    a {
+      color: #3a3a3a; /* 링크 색상 */
+      &:hover {
+        text-decoration: underline; /* 호버 시 밑줄 추가 */
+      }
+    }
+  }
+}
