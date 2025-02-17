@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import '../../styles/MyPage.scss';
 
 const MyPage: React.FC = () => {
-  const [username, setUsername] = useState('admin1234'); // 사용자 이름
+  const [username, setUsername] = useState('admin1234');
   const [userProfileImage, setUserProfileImage] = useState(
     'path/to/profile/image.jpg',
-  ); // 프로필 이미지 경로 (예시)
+  ); // 프로필 이미지 경로 ex
   const [showEditInfo, setShowEditInfo] = useState(false);
   const [showRegisterStore, setShowRegisterStore] = useState(false);
   const [showWithdraw, setShowWithdraw] = useState(false);
@@ -53,7 +53,7 @@ const MyPage: React.FC = () => {
                 id="file-input"
                 onChange={handleImageUpload}
                 accept="image/*"
-                style={{ display: 'none' }} // 파일 입력 숨김
+                style={{ display: 'none' }}
               />
               <div className="username-edit">
                 <label>

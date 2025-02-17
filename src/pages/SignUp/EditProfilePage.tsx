@@ -4,7 +4,6 @@ import '../../styles/EditProfilePage.scss';
 const EditProfilePage: React.FC = () => {
   const [formData, setFormData] = useState({
     username: '',
-    password: '',
     name: '',
     birthdate: '',
     gender: '',
@@ -18,19 +17,19 @@ const EditProfilePage: React.FC = () => {
     businessAddress: '',
   });
 
+  const [currentPassword, setCurrentPassword] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [emailError, setEmailError] = useState('');
   const [membershipType, setMembershipType] = useState<
     'individual' | 'business'
   >('individual');
 
-  // 기존 회원 정보 불러오기 (가정: 사용자 정보는 API 호출로 가져옴)
   useEffect(() => {
     const fetchUserData = async () => {
-      // 여기서 API 호출을 통해 사용자 정보를 가져옵니다.
       const userData = {
         username: 'testuser',
-        password: 'password123',
         name: '이채훈',
         birthdate: '1990-01-01',
         gender: 'male',
@@ -38,7 +37,7 @@ const EditProfilePage: React.FC = () => {
         phoneNumber: '01012345678',
         address: '서울시 노원구 중계동',
         companyName: '버거킴',
-        businessType: '레스토랑랑',
+        businessType: '레스토랑',
         storeAddress: '서울시 서초구 신반포로',
         representativeName: '이채훈',
         businessAddress: '서울시 서초구 신반포로',
@@ -55,23 +54,6 @@ const EditProfilePage: React.FC = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
 
-    // 비밀번호 유효성 검사
-    if (name === 'password') {
-      if (value.length < 8 || value.length > 16) {
-        setPasswordError('비밀번호는 8-16자 이내여야 합니다.');
-      } else if (
-        !/[a-z]/.test(value) ||
-        !/[0-9]/.test(value) ||
-        !/[!@#$%^&*]/.test(value)
-      ) {
-        setPasswordError(
-          '비밀번호는 소문자, 숫자, 특수문자를 포함해야 합니다.',
-        );
-      } else {
-        setPasswordError('');
-      }
-    }
-
     // 이메일 유효성 검사
     if (name === 'email') {
       const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -87,14 +69,30 @@ const EditProfilePage: React.FC = () => {
     setMembershipType(type);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (passwordError || emailError) {
-      alert('입력한 정보가 유효하지 않습니다.');
-      return;
+
+    // 비밀번호 유효성 검사
+    if (newPassword && confirmPassword) {
+      if (newPassword.length < 8 || newPassword.length > 16) {
+        setPasswordError('비밀번호는 8-16자 이내여야 합니다.');
+        return;
+      } else if (
+        !/[a-z]/.test(newPassword) ||
+        !/[0-9]/.test(newPassword) ||
+        !/[!@#$%^&*]/.test(newPassword)
+      ) {
+        setPasswordError(
+          '비밀번호는 소문자, 숫자, 특수문자를 포함해야 합니다.',
+        );
+        return;
+      } else if (newPassword !== confirmPassword) {
+        setPasswordError('새 비밀번호가 일치하지 않습니다.');
+        return;
+      } else {
+        setPasswordError('');
+      }
     }
-    console.log(formData);
-    // 여기서 수정된 정보로 API 요청을 보낼 수 있습니다.
   };
 
   return (
@@ -127,17 +125,40 @@ const EditProfilePage: React.FC = () => {
               required
             />
           </div>
+
+          {/* 비밀번호 수정 입력란 */}
           <div className="form-group">
-            <label>비밀번호(변경 시 입력)</label>
+            <label>현재 비밀번호</label>
             <input
               type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              placeholder="비밀번호를 입력해주세요"
+              value={currentPassword}
+              onChange={e => setCurrentPassword(e.target.value)}
+              placeholder="현재 비밀번호를 입력해주세요"
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label>새 비밀번호</label>
+            <input
+              type="password"
+              value={newPassword}
+              onChange={e => setNewPassword(e.target.value)}
+              placeholder="비밀번호(8-16자 이내, 소문자, 특수문자)"
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label>새 비밀번호 확인</label>
+            <input
+              type="password"
+              value={confirmPassword}
+              onChange={e => setConfirmPassword(e.target.value)}
+              placeholder="새 비밀번호를 다시 입력해주세요"
+              required
             />
             {passwordError && <span className="error">{passwordError}</span>}
           </div>
+
           <div className="form-group">
             <label>이름(실명)</label>
             <input
@@ -150,7 +171,7 @@ const EditProfilePage: React.FC = () => {
             />
           </div>
           <div className="form-group">
-            <label>생년월일(예: 20000131)</label>
+            <label>생년월일(예: 2000-01-31)</label>
             <input
               type="date"
               name="birthdate"
@@ -158,20 +179,6 @@ const EditProfilePage: React.FC = () => {
               onChange={handleChange}
               required
             />
-          </div>
-          <div className="form-group">
-            <label>성별</label>
-            <select
-              name="gender"
-              value={formData.gender}
-              onChange={handleChange}
-              required
-            >
-              <option value="">선택하세요</option>
-              <option value="male">남자</option>
-              <option value="female">여자</option>
-              <option value="none">밝히고 싶지 않음</option>
-            </select>
           </div>
           <div className="form-group">
             <label>이메일</label>

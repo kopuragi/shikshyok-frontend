@@ -3,22 +3,22 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh; /* 화면 중앙 정렬을 위해 전체 높이 설정 */
+  height: 100vh;
 
   .login-title {
-    font-size: 2.5em; /* 제목 크기 설정 */
+    font-size: 2.5em;
     margin-bottom: 20px;
     text-align: center;
   }
 
   .membership-container {
-    border: 1px solid #ccc; /* 테두리 설정 */
-    border-radius: 8px; /* 모서리 둥글게 */
+    border: 1px solid #ccc;
+    border-radius: 8px;
     padding: 20px;
-    width: 100%; /* 전체 너비 사용, 반응형 */
-    max-width: 400px; /* 최대 너비 설정 */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
-    background-color: white; /* 배경색 설정 */
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
 
     .membership-type {
       display: flex;
@@ -30,17 +30,17 @@
         border: 1px solid #ccc;
         background-color: white;
         cursor: pointer;
-        flex: 1; /* 버튼을 동등하게 분배 */
-        margin: 0 5px; /* 버튼 간격 */
+        flex: 1;
+        margin: 0 5px;
         border-radius: 4px;
 
         &.active {
-          background-color: #fe9a00; /* 활성화된 버튼 색상 */
+          background-color: #fe9a00;
           color: white;
         }
 
         &:hover {
-          background-color: #f0f0f0; /* 호버 색상 변경 */
+          background-color: #f0f0f0;
         }
       }
     }
@@ -81,22 +81,69 @@
         cursor: pointer;
 
         &:hover {
-          background-color: #fe7a00; /* 호버 색상 변경 */
+          background-color: #fe7a00;
         }
       }
     }
   }
+
   .additional-links {
-    margin-top: 15px; /* 버튼과 링크 사이의 간격 */
+    margin-top: 15px;
     display: flex;
-    justify-content: space-evenly; /* 링크들을 양쪽으로 배치 */
-    font-size: 15px; /* 링크 글자 크기 설정 */
+    justify-content: space-evenly;
+    font-size: 15px;
 
     a {
-      color: #3a3a3a; /* 링크 색상 */
+      color: #3a3a3a;
       &:hover {
-        text-decoration: underline; /* 호버 시 밑줄 추가 */
+        text-decoration: underline;
       }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .login-page {
+    padding: 15px;
+
+    .login-title {
+      font-size: 2em;
+    }
+
+    .membership-container {
+      max-width: 90%;
+    }
+
+    .additional-links {
+      font-size: 14px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .login-page {
+    .login-title {
+      font-size: 1.8em;
+    }
+
+    .membership-container {
+      padding: 15px;
+    }
+
+    .additional-links {
+      font-size: 13px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .login-page {
+    .login-title {
+      font-size: 1.5em;
+    }
+
+    .membership-container {
+      padding: 10px;
     }
   }
 }

@@ -9,20 +9,20 @@ const SignUpPage: React.FC = () => {
     birthdate: '',
     gender: '',
     email: '',
-    phoneNumber: '', // 휴대폰 번호
-    address: '', // 주소
-    companyName: '', // 기업회원 가게명
-    businessType: '', // 업종
-    storeAddress: '', // 가게 주소
-    representativeName: '', // 대표자명
-    businessAddress: '', // 사업자 주소
+    phoneNumber: '',
+    address: '',
+    companyName: '',
+    businessType: '',
+    storeAddress: '',
+    representativeName: '',
+    businessAddress: '',
   });
 
   const [passwordError, setPasswordError] = useState('');
   const [emailError, setEmailError] = useState('');
   const [membershipType, setMembershipType] = useState<
     'individual' | 'business'
-  >('individual'); // 기본값은 개인회원
+  >('individual');
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
@@ -60,7 +60,6 @@ const SignUpPage: React.FC = () => {
 
   const handleMembershipChange = (type: 'individual' | 'business') => {
     setMembershipType(type);
-    // 폼 초기화
     setFormData({
       username: '',
       password: '',
@@ -68,8 +67,8 @@ const SignUpPage: React.FC = () => {
       birthdate: '',
       gender: '',
       email: '',
-      phoneNumber: '', // 휴대폰 번호 초기화
-      address: '', // 주소 초기화
+      phoneNumber: '',
+      address: '',
       companyName: '',
       businessType: '',
       storeAddress: '',
@@ -85,7 +84,6 @@ const SignUpPage: React.FC = () => {
       return;
     }
     console.log(formData);
-    // 여기에서 회원가입 요청을 보낼 수 있습니다.
   };
 
   return (
@@ -108,7 +106,7 @@ const SignUpPage: React.FC = () => {
         </div>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label>아이디(특수문자, 영어, 숫자포함)</label>
+            <label>아이디</label>
             <input
               type="text"
               name="username"
@@ -119,7 +117,7 @@ const SignUpPage: React.FC = () => {
             />
           </div>
           <div className="form-group">
-            <label>비밀번호(8-16자 이내, 소문자, 특수문자)</label>
+            <label>비밀번호</label>
             <input
               type="password"
               name="password"
@@ -131,7 +129,7 @@ const SignUpPage: React.FC = () => {
             {passwordError && <span className="error">{passwordError}</span>}
           </div>
           <div className="form-group">
-            <label>이름(실명)</label>
+            <label>이름</label>
             <input
               type="text"
               name="name"

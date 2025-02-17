@@ -5,7 +5,7 @@ const LoginPage: React.FC = () => {
   const [formData, setFormData] = useState({
     username: '',
     password: '',
-    membershipType: 'individual', // 기본값으로 개인회원 선택
+    membershipType: 'individual', // 기본값 개인회원
   });
 
   const [error, setError] = useState('');
@@ -15,7 +15,7 @@ const LoginPage: React.FC = () => {
   ) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-    setError(''); // 입력할 때 에러 메시지 초기화
+    setError('');
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -41,8 +41,6 @@ const LoginPage: React.FC = () => {
 
       const data = await response.json();
       console.log('로그인 성공:', data);
-
-      // 로그인 성공 후 추가적인 처리를 여기서 수행할 수 있습니다.
     } catch (error) {
       setError('로그인에 실패했습니다. 다시 시도해주세요.');
     }
