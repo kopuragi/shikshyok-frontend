@@ -7,11 +7,17 @@ import LoginPage from "./pages/SignUp/LoginPage";
 import MyPage from "./pages/SignUp/MyPage";
 import OwnerMain from "./pages/OwnerMain";
 import OwnerReiview from "./pages/OwnerReview";
+import Menus from "./components/Menus";
 
 function App() {
   return (
     <div>
       <Header />
+
+      <OwnerOrderHistory />
+      <OwnerOrderAllHistory />
+      <Menus />
+
       {/* <SignUpPage /> */}
       <EditProfilePage />
       {/* <LoginPage /> */}
@@ -20,6 +26,7 @@ function App() {
       {/* <OwnerOrderAllHistory /> */}
       {/* <OwnerMain /> */}
       {/* <OwnerReiview /> */}
+
 
       <h1 className="bg-amber-400">홈입니다</h1>
     </div>

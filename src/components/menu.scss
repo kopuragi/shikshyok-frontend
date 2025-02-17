@@ -1,0 +1,78 @@
+// 속성이 너무 많거나
+//한 번에 여러 요소에 스타일을 주려는 것들만
+//scss에 작성
+hr {
+  border: 2px solid gray;
+}
+
+span {
+  padding: 5px;
+  margin: 10px;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.menu-tab {
+  li {
+    width: 100px;
+    padding: 5px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid gray;
+  }
+}
+//js로 클래스를 변경할 예정
+//tailwind class 보다는 sass로 설정하는 게 좋다.
+.choose {
+  font-weight: bold;
+  color: white;
+  background: gray;
+}
+.menu-board {
+  li {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    min-width: 200px;
+    height: 300px;
+    margin: 10px;
+    border: 2px solid lightgray;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0px 5px 10px 0px lightgray;
+    cursor: pointer;
+    .icon-box {
+      width: 200px;
+      height: 30px;
+      text-align: right;
+    }
+    .img-box {
+      width: 150px;
+      height: 150px;
+      border: 1px solid black;
+    }
+    .content-box {
+      width: 150px;
+      height: 75px;
+      border: 1px solid black;
+    }
+  }
+}
+
+.add-icon {
+  font-size: 50px;
+  text-align: center;
+  color: gray;
+}
+
+@media (max-width: 480px) {
+  h3 {
+    color: blue;
+  }
+  .menu-board {
+    flex-wrap: wrap;
+    overflow-x: auto;
+  }
+}
