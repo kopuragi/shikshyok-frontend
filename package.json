@@ -8,10 +8,12 @@
     "@types/react-dom": "^19.0.3",
     "cra-template": "1.2.0",
     "react": "^19.0.0",
+    "react-datepicker": "^8.0.0",
     "react-dom": "^19.0.0",
     "react-redux": "^9.2.0",
     "react-router-dom": "^6.29.0",
     "react-scripts": "5.0.1",
+    "recharts": "^2.15.1",
     "redux": "^5.0.1",
     "sass": "^1.85.0"
   },

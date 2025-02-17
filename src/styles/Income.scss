@@ -1,0 +1,38 @@
+/* src/styles/Income.scss */
+
+/* Tailwind 기본 스타일 가져오기 */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container {
+  @apply max-w-screen-xl mx-auto px-4 py-6; /* 1200px 크기의 최대 너비로 설정 */
+}
+
+.header {
+  @apply text-3xl font-bold text-center mb-6;
+}
+
+.buttons {
+  @apply flex justify-center space-x-4 mb-6;
+}
+
+.button {
+  @apply bg-amber-400 text-white px-6 py-2 rounded-lg transition duration-300 ease-in-out;
+}
+
+.button:hover {
+  @apply bg-amber-600;
+}
+
+.chart-container {
+  @apply mt-8;
+}
+
+.select-container {
+  @apply mt-4 flex justify-center;
+}
+
+select {
+  @apply px-4 py-2 rounded-lg border border-gray-300 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
