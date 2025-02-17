@@ -1,0 +1,149 @@
+.login-page {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+
+  .login-title {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .membership-container {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+
+    .membership-type {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+
+      button {
+        padding: 10px;
+        border: 1px solid #ccc;
+        background-color: white;
+        cursor: pointer;
+        flex: 1;
+        margin: 0 5px;
+        border-radius: 4px;
+
+        &.active {
+          background-color: #fe9a00;
+          color: white;
+        }
+
+        &:hover {
+          background-color: #f0f0f0;
+        }
+      }
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+
+      .form-group {
+        margin-bottom: 15px;
+
+        label {
+          display: block;
+          margin-bottom: 5px;
+        }
+
+        input {
+          width: 100%;
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+        }
+      }
+
+      .error {
+        color: red;
+        font-size: 0.9em;
+        margin-bottom: 10px;
+      }
+
+      button {
+        padding: 10px;
+        background-color: #fe9a00;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #fe7a00;
+        }
+      }
+    }
+  }
+
+  .additional-links {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 15px;
+
+    a {
+      color: #3a3a3a;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .login-page {
+    padding: 15px;
+
+    .login-title {
+      font-size: 2em;
+    }
+
+    .membership-container {
+      max-width: 90%;
+    }
+
+    .additional-links {
+      font-size: 14px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .login-page {
+    .login-title {
+      font-size: 1.8em;
+    }
+
+    .membership-container {
+      padding: 15px;
+    }
+
+    .additional-links {
+      font-size: 13px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .login-page {
+    .login-title {
+      font-size: 1.5em;
+    }
+
+    .membership-container {
+      padding: 10px;
+    }
+  }
+}

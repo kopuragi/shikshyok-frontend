@@ -1,10 +1,11 @@
 .order-history-container-all {
-  border: 1px solid red;
+  border: 2px solid blueviolet;
+  border-radius: 20px;
   min-height: 700px;
-  max-width: 1040px;
-  width: 1040px;
-  margin-left: 30px;
-
+  max-width: 1100px;
+  width: 1100px;
+  margin-left: 50px;
+  overflow: hidden;
   @media (max-width: 480px) {
     width: 94vw;
     margin-left: 3vw;
@@ -13,16 +14,16 @@
 
 .menu-tab-container-all {
   display: flex;
-  min-height: 50px;
+  height: 50px;
 }
 
 .menu-tab-1-all {
   width: 140px;
-  background-color: gray;
+  background-color: orange;
   display: flex;
   align-items: center;
   justify-content: center;
-
+  cursor: pointer;
   @media (max-width: 480px) {
     width: 20vw;
   }
@@ -30,50 +31,90 @@
 
 .menu-tab-2-all {
   width: 140px;
-  background-color: orange;
+  background-color: gray;
   display: flex;
   align-items: center;
   justify-content: center;
-
+  cursor: pointer;
   @media (max-width: 480px) {
     width: 20vw;
   }
 }
 
 .receipt-card-container-all {
-  border: 1px solid red;
+  // border: 1px solid red;
   display: flex;
   width: 100%;
+  padding: 4px;
   flex-wrap: wrap;
 }
 
 .receipt-card-all {
-  border: 1px solid green;
+  border: 2px solid green;
+  border-radius: 10px;
   width: 33%;
+  margin: 0.16%;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 8px;
+  .custom-icon-all {
+    font-size: 30px;
+  }
 
   @media (max-width: 480px) {
-    width: 50%;
+    width: 49.68%;
   }
 }
 
 .receipt-card-list-all {
-  border: 1px solid blue;
+  border: 2px solid #e1e1e1;
+  border-radius: 20px;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-weight: bold;
+  position: relative;
+
+  li:first-child {
+    position: absolute;
+    margin-top: 2px;
+    left: 92%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    .custom-icon-all {
+      font-size: 26px;
+      width: 24px;
+      opacity: 40%;
+    }
+    .custom-icon-all:hover {
+      opacity: 100%;
+    }
+  }
+
+  li:nth-child(2) {
+    order: -1;
+    margin-top: 2px;
+  }
+
+  @media (max-width: 480px) {
+    li:first-child {
+      left: 89%;
+      margin-top: 2px;
+    }
+    .custom-icon {
+      font-size: 22px;
+    }
+  }
 }
+
 .pagination-container-all {
   background-color: aqua;
   min-height: 50px;
-  max-width: 1040px;
-  width: 1040px;
-  margin-left: 30px;
+  max-width: 1100px;
+  width: 1100px;
+  margin-left: 50px;
   display: flex;
   justify-content: center;
   align-items: center;

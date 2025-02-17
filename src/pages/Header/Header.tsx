@@ -10,10 +10,7 @@ const Header: React.FC<HeaderProps> = ({ nickname }) => {
     <header>
       <div className="header-container">
         <div className="logo-container">
-          <img
-            src={`${process.env.PUBLIC_URL}/assets/logo_pc.png`}
-            alt="Logo"
-          />
+          <img src={`${process.env.PUBLIC_URL}/assets/logo.png`} alt="Logo" />
         </div>
         <div className="menu-container">
           <div>마이페이지</div>
