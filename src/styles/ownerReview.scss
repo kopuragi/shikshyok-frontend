@@ -1,0 +1,40 @@
+.con {
+  @media (max-width: 768px) {
+    .title {
+      width: 80%;
+      > div > p {
+        font-size: 0.8rem;
+      }
+    }
+  }
+  @media (max-width: 480px) {
+    .title {
+      width: 100%;
+      > div > p {
+        font-size: 0.7rem;
+      }
+    }
+  }
+  > section {
+    > .contentWrapper {
+      transition: height 0.35s ease;
+      @media (max-width: 768px) {
+        > .innerContent > p {
+          font-size: 0.8rem;
+        }
+      }
+    }
+    @media (max-width: 768px) {
+      width: 80%;
+      > header > div > p {
+        font-size: 0.8rem;
+      }
+    }
+    @media (max-width: 480px) {
+      width: 100%;
+      > header > div > p {
+        font-size: 0.7rem;
+      }
+    }
+  }
+}
