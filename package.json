@@ -9,14 +9,12 @@
     "@reduxjs/toolkit": "^2.5.1",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
+    "axios": "^1.7.9",
     "bootstrap": "^5.3.3",
     "cra-template": "1.2.0",
     "react": "^19.0.0",
-
-    "react-datepicker": "^8.0.0",
-
     "react-bootstrap": "^2.10.9",
-
+    "react-datepicker": "^8.0.0",
     "react-dom": "^19.0.0",
     "react-redux": "^9.2.0",
     "react-router-dom": "^6.29.0",
