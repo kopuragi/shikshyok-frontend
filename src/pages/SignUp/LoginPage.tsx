@@ -25,9 +25,10 @@ const LoginPage: React.FC = () => {
       return;
     }
 
-    // 로그인 요청을 위한 API 호출 (가상의 URL)
+    // 로그인 요청을 위한 API 호출
     try {
       const response = await fetch('https://api.example.com/login', {
+        // 실제 백엔드 API URL로 변경
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -41,6 +42,7 @@ const LoginPage: React.FC = () => {
 
       const data = await response.json();
       console.log('로그인 성공:', data);
+      // 로그인 성공 후 추가 동작 (예: 대시보드로 리다이렉트)
     } catch (error) {
       setError('로그인에 실패했습니다. 다시 시도해주세요.');
     }
@@ -50,7 +52,6 @@ const LoginPage: React.FC = () => {
     <div className="login-page">
       <h1 className="login-title">로그인</h1>
       <div className="membership-container">
-        {' '}
         {/* 회원 유형 선택 박스 */}
         <div className="membership-type">
           <button

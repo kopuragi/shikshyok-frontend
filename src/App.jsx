@@ -11,9 +11,9 @@ function App() {
     <div>
       <Header />
       {/* <SignUpPage /> */}
-      <EditProfilePage />
+      {/* <EditProfilePage /> */}
       {/* <LoginPage /> */}
-      {/* <MyPage /> */}
+      <MyPage />
       {/* <OwnerOrderHistory /> */}
       {/* <OwnerOrderAllHistory /> */}
       <h1 className="bg-amber-400">홈입니다</h1>

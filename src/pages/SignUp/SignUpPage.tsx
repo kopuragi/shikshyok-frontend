@@ -15,11 +15,12 @@ const SignUpPage: React.FC = () => {
     businessType: '',
     storeAddress: '',
     representativeName: '',
-    businessAddress: '',
+    businessRegistrationNumber: '',
   });
 
   const [passwordError, setPasswordError] = useState('');
   const [emailError, setEmailError] = useState('');
+  const [emailExists, setEmailExists] = useState(false); // 이메일 중복 확인 상태
   const [membershipType, setMembershipType] = useState<
     'individual' | 'business'
   >('individual');
@@ -73,17 +74,55 @@ const SignUpPage: React.FC = () => {
       businessType: '',
       storeAddress: '',
       representativeName: '',
-      businessAddress: '',
+      businessRegistrationNumber: '',
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const checkEmailExists = async () => {
+    try {
+      const response = await fetch(
+        `https://api.example.com/check-email?email=${formData.email}`,
+      ); // 이메일 중복 확인 API URL
+      if (!response.ok) {
+        throw new Error('이메일 중복 확인에 실패했습니다.');
+      }
+      const data = await response.json();
+      setEmailExists(data.exists); // data.exists가 true면 이메일이 이미 존재함
+    } catch (error) {
+      console.error('이메일 중복 확인 오류:', error);
+      alert('이메일 중복 확인 중 오류가 발생했습니다.');
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (passwordError || emailError) {
+    if (passwordError || emailError || emailExists) {
       alert('입력한 정보가 유효하지 않습니다.');
       return;
     }
-    console.log(formData);
+
+    // 백엔드에 회원가입 요청
+    try {
+      const response = await fetch('https://api.example.com/signup', {
+        // 실제 백엔드 API URL로 변경
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('회원가입 실패');
+      }
+
+      const data = await response.json();
+      console.log('회원가입 성공:', data);
+      alert('회원가입이 완료되었습니다.');
+    } catch (error) {
+      console.error('회원가입 오류:', error);
+      alert('회원가입 중 오류가 발생했습니다.');
+    }
   };
 
   return (
@@ -140,7 +179,7 @@ const SignUpPage: React.FC = () => {
             />
           </div>
           <div className="form-group">
-            <label>생년월일(예: 20000131)</label>
+            <label>생년월일(예: 2000-01-31)</label>
             <input
               type="date"
               name="birthdate"
@@ -174,9 +213,14 @@ const SignUpPage: React.FC = () => {
               required
             />
             {emailError && <span className="error">{emailError}</span>}
+            <button type="button" onClick={checkEmailExists}>
+              이메일 중복 확인
+            </button>
+            {emailExists && (
+              <span className="error">이미 사용 중인 이메일입니다.</span>
+            )}
           </div>
 
-          {/* 휴대폰 번호 및 주소 입력란 추가 */}
           <div className="form-group">
             <label>휴대폰 번호</label>
             <input
@@ -200,7 +244,6 @@ const SignUpPage: React.FC = () => {
             />
           </div>
 
-          {/* 기업회원 추가 입력란 */}
           {membershipType === 'business' && (
             <>
               <div className="form-group-inline">
@@ -252,13 +295,13 @@ const SignUpPage: React.FC = () => {
                 </div>
               </div>
               <div className="form-group">
-                <label>사업자 주소</label>
+                <label>사업자 등록증 번호</label>
                 <input
                   type="text"
-                  name="businessAddress"
-                  value={formData.businessAddress}
+                  name="businessRegistrationNumber"
+                  value={formData.businessRegistrationNumber}
                   onChange={handleChange}
-                  placeholder="사업자 주소를 입력해주세요"
+                  placeholder="사업자 등록증 번호를 입력해주세요"
                   required
                 />
               </div>

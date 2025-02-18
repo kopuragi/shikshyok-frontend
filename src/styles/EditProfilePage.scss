@@ -2,7 +2,8 @@
   padding: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; // 항상 중앙 정렬
+  justify-content: center; // 세로 중앙 정렬
 
   h1 {
     font-size: 2em;
@@ -14,8 +15,8 @@
 
   .edit-profile-container {
     width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
+    max-width: 500px; // 기본 최대 너비 500px
+    margin: 0 auto; // 중앙 정렬
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -118,6 +119,7 @@
   }
 }
 
+/* 미디어 쿼리로 반응형 조정 */
 @media (max-width: 1200px) {
   .edit-profile-page {
     padding: 15px;
@@ -127,8 +129,8 @@
     }
 
     .edit-profile-container {
-      width: 90%;
-      max-width: 400px;
+      width: 90%; // 폭을 90%로 조정
+      max-width: 400px; // 최대 너비 400px
     }
   }
 }
